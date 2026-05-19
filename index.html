@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EF Client Portal - Demo</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #003366; border-bottom: 2px solid #003366; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #444; margin-top: 25px; font-size: 1.2rem; background: #e9ecef; padding: 8px; border-radius: 4px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        label { font-weight: 6px; margin-bottom: 5px; font-size: 0.9rem; }
+        input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
+        .results-box { background: #003366; color: white; padding: 20px; border-radius: 6px; margin-top: 30px; }
+        .result-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 1.1rem; }
+        .result-item strong { font-size: 1.2rem; }
+        button { background: #28a745; color: white; border: none; padding: 12px 20px; border-radius: 4px; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 20px; font-weight: bold; }
+        button:hover { background: #218838; }
+        .note { font-size: 0.8rem; color: #666; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="portal-content">
+    <h1>EF Client Report Portal <span style="font-size: 1rem; color: #666;">(Demo v1.0)</span></h1>
+    <p><strong>Client:</strong> Carlos Test | <strong>Date:</strong> 2026-05-19</p>
+
+    <h2>1. Simple Automated Cash Flow (SACS) DATA</h2>
+    <div class="grid">
+        <div class="form-group">
+            <label>Monthly Inflow (Salary after tax) ($):</label>
+            <input type="number" id="inflow" value="15000">
+        </div>
+        <div class="form-group">
+            <label>Monthly Outflow (Agreed Budget) ($):</label>
+            <input type="number" id="outflow" value="11000">
+        </div>
+    </div>
+
+    <h2>2. Account Balances (TCC)</h2>
+    <div class="grid">
+        <div class="form-group">
+            <label>Client 1 Retirement (IRA/Roth) ($):</label>
+            <input type="number" id="ret1" value="26000">
+        </div>
+        <div class="form-group">
+            <label>Client 2 Retirement Total ($):</label>
+            <input type="number" id="ret2" value="0">
+        </div>
+        <div class="form-group">
+            <label>Non-Retirement (Brokerage/Joint) ($):</label>
+            <input type="number" id="nonRet" value="50000">
+        </div>
+        <div class="form-group">
+            <label>Trust (Zillow House Value) ($):</label>
+            <input type="number" id="trust" value="450000">
+        </div>
+    </div>
+
+    <h2>3. Liabilities (Displayed Separately)</h2>
+    <div class="grid">
+        <div class="form-group">
+            <label>Mortgage / Total Debts ($):</label>
+            <input type="number" id="liabilities" value="200000">
+        </div>
+    </div>
+
+    <div class="results-box">
+        <div class="result-item">
+            <span>SACS: Monthly Excess Cash:</span>
+            <span id="resExcess">$0</span>
+        </div>
+        <div class="result-item">
+            <span>TCC: Grand Total Net Worth:</span>
+            <span id="resNetWorth"><strong>$0</strong></span>
+        </div>
+        <div class="result-item" style="border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 10px; margin-top: 10px; color: #ffcccc;">
+            <span>Liabilities (Not subtracted per rules):</span>
+            <span id="resLiabilities">$0</span>
+        </div>
+    </div>
+
+    <button onclick="simulatePDF()">Generate Report PDF</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
