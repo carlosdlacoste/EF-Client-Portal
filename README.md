@@ -3,8 +3,7 @@
 A responsive, client-side automated portal designed to streamline financial reporting workflows for account managers, eliminating manual calculation errors.
 
 ## 🚀 Live Demo & Walkthrough
-* **Live Link (GitHub Pages):** [PEGA AQUÍ EL LINK DE GITHUB PAGES]
-* **Loom Video Walkthrough:** [PEGA AQUÍ EL LINK DE LOOM]
+* **Live Link (GitHub Pages):** https://carlosdlacoste.github.io/EF-Client-Portal/
 
 ---
 
