@@ -33,4 +33,4 @@ This architecture was structured to seamlessly decouple the Frontend representat
 
 1. Clone this repository:
    ```bash
-   git clone git clone https://github.com/carlosdlacoste/EF-Client-Portal.git
+   git clone https://github.com/carlosdlacoste/EF-Client-Portal.git
